@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import '../../models/api_response.dart';
 import '../../models/coupon.dart';
@@ -71,6 +70,7 @@ class DataProvider extends ChangeNotifier {
   List<MyNotification> get notifications => _filteredNotifications;
 
   DataProvider() {
+    getAllProducts();
     getAllCategory();
     getAllSubCategory();
     getAllBrands();
@@ -263,10 +263,41 @@ class DataProvider extends ChangeNotifier {
   }
 
 //TODO: should complete getAllProduct
+  Future<void>getAllProducts({bool showSnack = false}) async {
+    try {
+      Response response = await service.getItems(endpointUrl: 'products');
 
+        ApiResponse<List<Product>> apiResponse = ApiResponse<
+            List<Product>>.fromJson(
+          response.body,
+              (json) =>
+              (json as List).map((item) => Product.fromJson(item)).toList(),
+        );
+        _allProducts = apiResponse.data ?? [];
+        _filteredProducts = List.from(_allProducts);
+        notifyListeners();
+        if (showSnack) SnackBarHelper.showSuccessSnackBar(apiResponse.message);
+    } catch (e) {
+      if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
+    }
+  }
 
 //TODO: should complete filterProducts
+  void filterProducts(String keyword) {
+    if (keyword.isEmpty) {
+      _filteredProducts = List.from(_allProducts);
+    } else {
+      final lowerKeyword = keyword.toLowerCase();
+      _filteredProducts = _allProducts.where((product) {
+        final productNameContainKeyword = (product.name ?? '').toLowerCase().contains(lowerKeyword);
+        final categoryNameContainKeyword = product.proCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
 
+        final subCategoryNameContainKeyword = product.proSubCategoryId?.name?.toLowerCase().contains(lowerKeyword) ?? false;
+      return productNameContainKeyword || categoryNameContainKeyword || subCategoryNameContainKeyword;
+      }).toList();
+    }
+    notifyListeners();
+  }
 
 //TODO: should complete getAllCoupons
 
