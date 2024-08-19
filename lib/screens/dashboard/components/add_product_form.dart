@@ -154,6 +154,7 @@ class ProductSubmitForm extends StatelessWidget {
                         onChanged: (newValue) {
                           if (newValue != null) {
                             //TODO: should complete call  filterSubcategory
+                            context.dashBoardProvider.filterSubCategory(newValue);
                           }
                         },
                         validator: (value) {
@@ -176,6 +177,7 @@ class ProductSubmitForm extends StatelessWidget {
                         onChanged: (newValue) {
                           if (newValue != null) {
                             //TODO: should complete call filterBrand
+                            context.dashBoardProvider.filterBrand(newValue);
                           }
                         },
                         validator: (value) {
@@ -268,6 +270,7 @@ class ProductSubmitForm extends StatelessWidget {
                           onChanged: (newValue) {
                             if (newValue != null) {
                               //TODO: should complete call filterVariant
+                              context.dashBoardProvider.filterVariant(newValue);
                             }
                           },
                           hintText: 'Select Variant type',

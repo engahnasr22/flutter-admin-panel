@@ -51,7 +51,7 @@ class SubCategoryProvider extends ChangeNotifier {
   }
 
   //TODO: should complete updateSubCategory
-  updateCategory() async {
+  updateSubCategory() async {
     try {
       if (subCategoryForUpdate != null) {
         Map<String, dynamic> subCategory = {
@@ -88,7 +88,7 @@ class SubCategoryProvider extends ChangeNotifier {
   //TODO: should complete submitSubCategory
   submitSubCategory() {
     if (subCategoryForUpdate != null) {
-      updateCategory();
+      updateSubCategory();
     } else {
       addSubCategory();
     }

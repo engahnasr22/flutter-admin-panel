@@ -1,3 +1,6 @@
+import 'package:admin/main.dart';
+import 'package:admin/utility/extensions.dart';
+
 import '../../../core/data/data_provider.dart';
 import '../../../models/variant.dart';
 import 'add_variant_form.dart';
@@ -63,6 +66,7 @@ class VariantsListSection extends StatelessWidget {
                           showAddVariantForm(context, dataProvider.variants[index]);
                         }, delete: () {
                           //TODO: should complete call deleteVariant
+                          context.variantProvider.deleteVariant(dataProvider.variants[index]);
                         }),
                   ),
                 );
@@ -82,6 +86,7 @@ DataRow variantDataRow(Variant VariantInfo, int index, {Function? edit, Function
         Row(
           children: [
             Container(
+              padding: EdgeInsets.all(2),
               height: 24,
               width: 24,
               decoration: BoxDecoration(
