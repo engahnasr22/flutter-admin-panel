@@ -1,0 +1,13 @@
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/CMakeFiles/INSTALL.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/CMakeFiles/ALL_BUILD.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/CMakeFiles/ZERO_CHECK.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/flutter/CMakeFiles/flutter_wrapper_app.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/flutter/CMakeFiles/flutter_assemble.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/flutter/CMakeFiles/INSTALL.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/runner/CMakeFiles/FAP.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/runner/CMakeFiles/INSTALL.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/runner/CMakeFiles/ALL_BUILD.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/plugins/file_selector_windows/CMakeFiles/file_selector_windows_plugin.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/plugins/file_selector_windows/CMakeFiles/INSTALL.dir
+D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/plugins/file_selector_windows/CMakeFiles/ALL_BUILD.dir

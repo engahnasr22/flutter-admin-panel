@@ -1,0 +1,10 @@
+^D:\APPS-DEVELOPMENT\DEV\FLUTTER-APPS\FLUTTER-ECOMMERCE\ADMIN\FLUTTER-ADMIN-PANEL\BUILD\WINDOWS\X64\CMAKEFILES\E88AE6B338C6E8C6BC1BB549707994C0\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/windows -BD:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/flutter_admin_portal.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

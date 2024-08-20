@@ -1,0 +1,28 @@
+^D:\APPS-DEVELOPMENT\DEV\FLUTTER-APPS\FLUTTER-ECOMMERCE\ADMIN\FLUTTER-ADMIN-PANEL\BUILD\WINDOWS\X64\CMAKEFILES\C167D2376532E5DDA42B584E969D46A5\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=D:\flutter PROJECT_DIR=D:\Apps-Development\Dev\flutter-apps\flutter-ecommerce\admin\flutter-admin-panel FLUTTER_ROOT=D:\flutter FLUTTER_EPHEMERAL_DIR=D:\Apps-Development\Dev\flutter-apps\flutter-ecommerce\admin\flutter-admin-panel\windows\flutter\ephemeral PROJECT_DIR=D:\Apps-Development\Dev\flutter-apps\flutter-ecommerce\admin\flutter-admin-panel FLUTTER_TARGET=D:\Apps-Development\Dev\flutter-apps\flutter-ecommerce\admin\flutter-admin-panel\lib\main.dart DART_DEFINES=Zmx1dHRlci5pbnNwZWN0b3Iuc3RydWN0dXJlZEVycm9ycz10cnVl DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=D:\Apps-Development\Dev\flutter-apps\flutter-ecommerce\admin\flutter-admin-panel\.dart_tool\package_config.json D:/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\APPS-DEVELOPMENT\DEV\FLUTTER-APPS\FLUTTER-ECOMMERCE\ADMIN\FLUTTER-ADMIN-PANEL\BUILD\WINDOWS\X64\CMAKEFILES\A99797F3A6A073751B60A2B07F98C5BC\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\APPS-DEVELOPMENT\DEV\FLUTTER-APPS\FLUTTER-ECOMMERCE\ADMIN\FLUTTER-ADMIN-PANEL\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/windows -BD:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64 --check-stamp-file D:/Apps-Development/Dev/flutter-apps/flutter-ecommerce/admin/flutter-admin-panel/build/windows/x64/flutter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
