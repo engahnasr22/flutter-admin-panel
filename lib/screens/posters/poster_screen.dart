@@ -1,3 +1,6 @@
+import 'package:admin/main.dart';
+import 'package:admin/utility/extensions.dart';
+
 import 'components/add_poster_form.dart';
 import 'components/poster_header.dart';
 import 'components/poster_list_section.dart';
@@ -49,7 +52,8 @@ class PosterScreen extends StatelessWidget {
                           Gap(20),
                           IconButton(
                               onPressed: () {
-                                //TODO: should complete call getAllPosters
+                                //Get AllPosters Call Function
+                                context.dataProvider.getAllPosters(showSnack:  true);
                               },
                               icon: Icon(Icons.refresh)),
                         ],

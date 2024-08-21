@@ -51,7 +51,7 @@ class DashBoardProvider extends ChangeNotifier {
 
   DashBoardProvider(this._dataProvider);
 
-  //TODO: should complete addProduct
+  //Add Product Configuration
   addProduct() async {
     try {
       if (selectedMainImage == null) {
@@ -103,7 +103,7 @@ class DashBoardProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete updateProduct
+  // Update Product Configuration
   updateProduct() async {
     try {
       Map<String, dynamic> formDataMap = {
@@ -156,7 +156,7 @@ class DashBoardProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete submitProduct
+  // Submit Product Configuration
   submitProduct() {
     if (productForUpdate != null) {
       updateProduct();
@@ -165,8 +165,30 @@ class DashBoardProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete deleteProduct
+  //Delete Product Configuration
+  deleteProduct(Product product) async{
+    try{
+      Response response = await service.deleteItem(endpointUrl: 'products', itemId: product.sId ?? '');
+      if (response.isOk) {
+        ApiResponse apiResponse = ApiResponse.fromJson(response.body, null);
+        if (apiResponse.success == true) {
+          clearFields();
+          SnackBarHelper.showSuccessSnackBar('${apiResponse.message}');
+          _dataProvider.getAllCategory();
+          print('Product Deleted successfully');
+        } else {
+          SnackBarHelper.showErrorSnackBar(
+              'Failed to Delete Product ${apiResponse.message}');
+        }
+      }
+    } catch(e){
+      print(e);
+      rethrow;
 
+    }
+  }
+
+  //Image Upload Configuration
   void pickImage({required int imageCardNumber}) async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
@@ -221,7 +243,7 @@ class DashBoardProvider extends ChangeNotifier {
     return form;
   }
 
-  //TODO: should complete filterSubcategory
+  //Filter Subcategory Configuration
   filterSubCategory(Category category) {
     selectedSubCategory = null;
     selectedBrand = null;
@@ -234,7 +256,7 @@ class DashBoardProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //TODO: should complete filterBrand
+  // Filter Brand Configuration
   filterBrand(SubCategory subCategory) {
     selectedBrand = null;
     selectedSubCategory = subCategory;
@@ -246,7 +268,7 @@ class DashBoardProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //TODO: should complete filterVariant
+  //Filter Variant Configuration
   filterVariant(VariantType variantType) {
     selectedVariants = [];
     selectedVariantType = variantType;

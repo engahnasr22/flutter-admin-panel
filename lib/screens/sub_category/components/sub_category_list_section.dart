@@ -65,7 +65,7 @@ class SubCategoryListSection extends StatelessWidget {
                         showAddSubCategoryForm(context, dataProvider.subCategories[index]);
                       },
                       delete: () {
-                        //TODO: should complete call deleteSubCategory
+                        //Delete SubCategory Configuration
                         context.subCategoryProvider.deleteSubCategory(dataProvider.subCategories[index]);
                       },
                     ),

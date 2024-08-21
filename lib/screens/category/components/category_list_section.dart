@@ -52,7 +52,7 @@ class CategoryListSection extends StatelessWidget {
                   rows: List.generate(
                     dataProvider.categories.length,
                     (index) => categoryDataRow(dataProvider.categories[index], delete: () {
-                      //TODO: should complete call  deleteCategory
+                      // Delete Category Configuration
                       context.categoryProvider.deleteCategory(dataProvider.categories[index]);
 
                     }, edit: () {

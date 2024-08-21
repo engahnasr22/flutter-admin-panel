@@ -14,6 +14,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "auto_size_text",
+      "rootUri": "file:///C:/Users/ahnas/AppData/Local/Pub/Cache/hosted/pub.dev/auto_size_text-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/ahnas/AppData/Local/Pub/Cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -446,7 +452,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-08-19T10:33:11.262273Z",
+  "generated": "2024-08-21T16:44:39.388763Z",
   "generator": "pub",
   "generatorVersion": "3.5.0",
   "flutterRoot": "file:///D:/flutter",

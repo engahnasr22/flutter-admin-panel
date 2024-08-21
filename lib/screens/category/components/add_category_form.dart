@@ -80,8 +80,8 @@ class CategorySubmitForm extends StatelessWidget {
                       // Validate and save the form
                       if (context.categoryProvider.addCategoryFormKey.currentState!.validate()) {
                         context.categoryProvider.addCategoryFormKey.currentState!.save();
+                        //Submit Category Function
                         context.categoryProvider.submitCategory();
-                        //TODO: should complete call submitCategory
                         Navigator.of(context).pop();
                       }
                     },

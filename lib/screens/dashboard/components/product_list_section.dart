@@ -1,3 +1,6 @@
+import 'package:admin/main.dart';
+import 'package:admin/utility/extensions.dart';
+
 import '../../../core/data/data_provider.dart';
 import '../../../models/product.dart';
 import 'add_product_form.dart';
@@ -23,10 +26,7 @@ class ProductListSection extends StatelessWidget {
         children: [
           Text(
             "All Products",
-            style: Theme
-                .of(context)
-                .textTheme
-                .titleMedium,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
             width: double.infinity,
@@ -37,32 +37,38 @@ class ProductListSection extends StatelessWidget {
                   // minWidth: 600,
                   columns: [
                     DataColumn(
-                      label: Text("Product Name"),
+                      label: Expanded(child: Text("Product Name")),
                     ),
                     DataColumn(
-                      label: Text("Category"),
+                      label: Expanded(child: Text("Category")),
                     ),
                     DataColumn(
-                      label: Text("Sub Category"),
+                      label: Expanded(child: Text("Sub Category")),
                     ),
                     DataColumn(
-                      label: Text("Price"),
+                      label: Expanded(child: Text("Price")),
                     ),
                     DataColumn(
-                      label: Text("Edit"),
+                      label: Expanded(child: Text("Edit")),
                     ),
                     DataColumn(
-                      label: Text("Delete"),
+                      label: Expanded(child: Text("Delete")),
                     ),
                   ],
                   rows: List.generate(
                     dataProvider.products.length,
-                        (index) => productDataRow(dataProvider.products[index],edit: () {
-                          showAddProductForm(context, dataProvider.products[index]);
-                        },
-                          delete: () {
-                            //TODO: should complete call deleteProduct
-                          },),
+                    (index) => productDataRow(
+                      dataProvider.products[index],
+                      edit: () {
+                        showAddProductForm(
+                            context, dataProvider.products[index]);
+                      },
+                      delete: () {
+                        //Delete Product Configuration
+                        context.dashBoardProvider
+                            .deleteProduct(dataProvider.products[index]);
+                      },
+                    ),
                   ),
                 );
               },
@@ -74,30 +80,47 @@ class ProductListSection extends StatelessWidget {
   }
 }
 
-DataRow productDataRow(Product productInfo,{Function? edit, Function? delete}) {
+DataRow productDataRow(Product productInfo,
+    {Function? edit, Function? delete}) {
   return DataRow(
     cells: [
       DataCell(
-        Row(
-          children: [
-            Image.network(
-              productInfo.images?.first.url ?? '',
-              height: 30,
-              width: 30,
-              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                return Icon(Icons.error);
-              },
+        Row(children: [
+          Container(
+            padding: EdgeInsets.only(right: 10.0),
+            child: ClipOval(
+                child: SizedBox.fromSize(
+                child: Image.network(
+                  fit: BoxFit.cover,
+                  productInfo.images?.first.url ?? '',
+                  height: 40,
+                  width: 40,
+                  errorBuilder: (BuildContext context, Object exception,
+                      StackTrace? stackTrace) {
+                    return Icon(Icons.error);
+                  },
+                ),
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Text(productInfo.name ?? ''),
+          ),
+          Container(
+            width: 300,
+            alignment: Alignment.centerLeft,
+            child: Text(
+              productInfo.name ?? '',
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.left,
+              maxLines: 2,
+              // Enable text wrapping
             ),
-          ],
-        ),
+          )
+        ]),
       ),
       DataCell(Text(productInfo.proCategoryId?.name ?? '')),
       DataCell(Text(productInfo.proSubCategoryId?.name ?? '')),
-      DataCell(Text('${productInfo.price}'),),
+      DataCell(
+        Text('${productInfo.price}'),
+      ),
       DataCell(IconButton(
           onPressed: () {
             if (edit != null) edit();

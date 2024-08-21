@@ -23,7 +23,7 @@ class CategoryProvider extends ChangeNotifier {
 
   CategoryProvider(this._dataProvider);
 
-  //TODO: should complete addCategory
+  //Add Category Configuration
   addCategory() async {
     try {
       if (selectedImage == null) {
@@ -60,7 +60,7 @@ class CategoryProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete updateCategory
+  //Update Category Configuration
   updateCategory() async {
     try{
       Map<String, dynamic> formDataMap = {
@@ -92,7 +92,7 @@ class CategoryProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete submitCategory
+  //Submit Category Configuration
   submitCategory(){
     if(categoryForUpdate != null){
       updateCategory();
@@ -111,7 +111,7 @@ class CategoryProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete deleteCategory
+  //Delete Category Configuration
 
   deleteCategory(Category category) async{
     try{

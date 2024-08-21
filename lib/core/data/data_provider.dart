@@ -76,10 +76,12 @@ class DataProvider extends ChangeNotifier {
     getAllBrands();
     getAllVariantType();
     getAllVariants();
+    getAllPosters();
+    getAllCoupons();
   }
 
 
-  //TODO: should complete getAllCategory
+  //Get AllCategory Configuration
   Future<List<Category>> getAllCategory({bool showSnack = false}) async {
     try {
       Response response = await service.getItems(endpointUrl: 'categories');
@@ -102,7 +104,7 @@ class DataProvider extends ChangeNotifier {
     return _filteredCategories;
   }
 
-  //TODO: should complete filterCategories
+  //Filter Categories Configuration
   void filterCategories(String keyword) {
     if (keyword.isEmpty) {
       _filteredCategories = List.from(_allCategories);
@@ -115,7 +117,7 @@ class DataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-//TODO: should complete getAllSubCategory
+//GetAll SubCategory Configuration
   Future<List<SubCategory>> getAllSubCategory({bool showSnack = false}) async {
     try {
       Response response = await service.getItems(endpointUrl: 'subCategories');
@@ -138,7 +140,7 @@ class DataProvider extends ChangeNotifier {
     return _filteredSubCategories;
   }
 
-//TODO: should complete filterSubCategories
+//Filter SubCategories Configuration
   void filterSubCategories(String keyword) {
     if (keyword.isEmpty) {
       _filteredSubCategories = List.from(_allSubCategories);
@@ -151,7 +153,7 @@ class DataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-//TODO: should complete getAllBrands
+//Get AllBrands Configuration
   Future<List<Brand>> getAllBrands({bool showSnack = false}) async {
     try {
       Response response = await service.getItems(endpointUrl: 'brands');
@@ -175,7 +177,7 @@ class DataProvider extends ChangeNotifier {
   }
 
 
-//TODO: should complete filterBrands
+//Filter Brands Configuration
   void filterBrands(String keyword) {
     if (keyword.isEmpty) {
       _filteredBrands = List.from(_allBrands);
@@ -188,7 +190,7 @@ class DataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-//TODO: should complete getAllVariantType
+//Get AllVariantType Configuration
   Future<List<VariantType>> getAllVariantType({bool showSnack = false}) async {
     try {
       Response response = await service.getItems(endpointUrl: 'variantTypes');
@@ -212,7 +214,7 @@ class DataProvider extends ChangeNotifier {
   }
 
 
-//TODO: should complete filterVariantTypes
+//Filter VariantTypes Configuration
   void filterVariantType(String keyword) {
     if (keyword.isEmpty) {
       _filteredVariantTypes = List.from(_allVariantTypes);
@@ -225,7 +227,7 @@ class DataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-//TODO: should complete getAllVariant
+//Get AllVariant Configuration
   Future<List<Variant>> getAllVariants({bool showSnack = false}) async {
     try {
       Response response = await service.getItems(endpointUrl: 'variants');
@@ -249,7 +251,7 @@ class DataProvider extends ChangeNotifier {
   }
 
 
-//TODO: should complete filterVariants
+//Filter Variants Configuration
   void filterVariants(String keyword) {
     if (keyword.isEmpty) {
       _filteredVariants = List.from(_allVariants);
@@ -262,7 +264,7 @@ class DataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-//TODO: should complete getAllProduct
+//Get AllProduct Configuration
   Future<void>getAllProducts({bool showSnack = false}) async {
     try {
       Response response = await service.getItems(endpointUrl: 'products');
@@ -282,7 +284,7 @@ class DataProvider extends ChangeNotifier {
     }
   }
 
-//TODO: should complete filterProducts
+//Filter Products Configuration
   void filterProducts(String keyword) {
     if (keyword.isEmpty) {
       _filteredProducts = List.from(_allProducts);
@@ -299,17 +301,76 @@ class DataProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-//TODO: should complete getAllCoupons
+//Get AllCoupons Configuration
+  Future<void>getAllCoupons({bool showSnack = false}) async {
+    try {
+      Response response = await service.getItems(endpointUrl: 'couponCodes');
+
+      ApiResponse<List<Coupon>> apiResponse = ApiResponse<
+          List<Coupon>>.fromJson(
+        response.body,
+            (json) =>
+            (json as List).map((item) => Coupon.fromJson(item)).toList(),
+      );
+      _allCoupons= apiResponse.data ?? [];
+      _filteredCoupons = List.from(_allCoupons);
+      notifyListeners();
+      if (showSnack) SnackBarHelper.showSuccessSnackBar(apiResponse.message);
+    } catch (e) {
+      if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
+    }
+  }
 
 
-//TODO: should complete filterCoupons
+//Filter Coupons Configuration
+  void filterCoupons(String keyword) {
+    if (keyword.isEmpty) {
+      _filteredCoupons= List.from(_allCoupons);
+    } else {
+      final lowerKeyword = keyword.toLowerCase();
+      _filteredCoupons = _allCoupons.where((coupon) {
+        return (coupon.couponCode ?? '').toLowerCase().contains(lowerKeyword);
+      }).toList();
+    }
+    notifyListeners();
+  }
 
 
-//TODO: should complete getAllPosters
+//Get AllPosters Configuration
+  Future<List<Poster>> getAllPosters({bool showSnack = false}) async {
+    try {
+      Response response = await service.getItems(endpointUrl: 'posters');
+      if (response.isOk) {
+        ApiResponse<List<Poster>> apiResponse = ApiResponse<
+            List<Poster>>.fromJson(
+          response.body,
+              (json) =>
+              (json as List).map((item) => Poster.fromJson(item)).toList(),
+        );
+        _allPosters = apiResponse.data ?? [];
+        _filteredPosters = List.from(_allPosters);
+        notifyListeners();
+        if (showSnack) SnackBarHelper.showSuccessSnackBar(apiResponse.message);
+      }
+    } catch (e) {
+      if (showSnack) SnackBarHelper.showErrorSnackBar(e.toString());
+      rethrow;
+    }
+    return _filteredPosters;
+  }
 
-
-//TODO: should complete filterPosters
-
+//Filter Posters Configuration
+  void filterPosters(String keyword) {
+    if (keyword.isEmpty) {
+      _filteredPosters = List.from(_allPosters);
+    } else {
+      final lowerKeyword = keyword.toLowerCase();
+      _filteredPosters = _allPosters.where((poster) {
+        return (poster.posterName ?? '').toLowerCase().contains(lowerKeyword);
+      }).toList();
+    }
+    notifyListeners();
+  }
 
 //TODO: should complete getAllNotifications
 
@@ -326,10 +387,46 @@ class DataProvider extends ChangeNotifier {
 //TODO: should complete calculateOrdersWithStatus
 
 
-//TODO: should complete filterProductsByQuantity
+//Filter ProductsByQuantity Configuration
+void filterProductByQuantity(String productQntType){
+    if(productQntType == 'All Product'){
+      _filteredProducts = List.from(_allProducts);
+    }else if(productQntType == 'Out of Stock'){
+      _filteredProducts = _allProducts.where((product){
+        //Filter Products with quantity equal to 0 (Out of Stock)
+        return product.quantity != null && product.quantity == 0;
+      }).toList();
+    }else if (productQntType == 'Limited Stock'){
+      _filteredProducts = _allProducts.where((product){
+        //Filter Products with quantity equal to 1 (Limited Stock)
+        return product.quantity != null && product.quantity == 1;
+      }).toList();
+    }else if (productQntType == 'Other Stock'){
+      _filteredProducts = _allProducts.where((product){
+        //Filter Products with quantity equal to 0 or 1 (Other Stock)
+        return product.quantity != null && product.quantity !=0 && product.quantity !=1;
+      }).toList();
+    }else{
+      _filteredProducts = List.from(_allProducts);
+    }
+    notifyListeners();
+}
 
 
-//TODO: should complete calculateProductWithQuantity
+//Calculate ProductWithQuantity Configuration
+int calculateProductWithQuantity({int? quantity}){
+    int totalProducts = 0;
+    if(quantity == null){
+      totalProducts = _allProducts.length;
+    }else{
+      for(Product product in _allProducts){
+        if(product.quantity !=null && product.quantity == quantity){
+          totalProducts += 1;
+        }
+      }
+    }
+    return totalProducts;
+}
 
 
 }

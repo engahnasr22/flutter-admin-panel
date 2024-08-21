@@ -1,3 +1,6 @@
+import 'package:admin/main.dart';
+import 'package:admin/utility/extensions.dart';
+
 import '../../../core/data/data_provider.dart';
 import '../../../models/coupon.dart';
 import 'add_coupon_form.dart';
@@ -64,7 +67,8 @@ class CouponListSection extends StatelessWidget {
                         showAddCouponForm(context, dataProvider.coupons[index]);
                       },
                       delete: () {
-                        //TODO: should complete call deleteCoupon
+                        //Delete Coupon Call Function
+                        context.couponCodeProvider.deleteCoupon(dataProvider.coupons[index]);
                       },
                     ),
                   ),

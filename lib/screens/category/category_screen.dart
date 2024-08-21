@@ -50,7 +50,7 @@ class CategoryScreen extends StatelessWidget {
                           Gap(20),
                           IconButton(
                               onPressed: () {
-                                //TODO: should complete getAllCategory
+                                //Get AllCategory Function
                                 context.dataProvider.getAllCategory(showSnack: true);
                               },
                               icon: Icon(Icons.refresh)),

@@ -1,10 +1,12 @@
+import 'package:admin/main.dart';
+import 'package:admin/utility/extensions.dart';
+
 import '../../../core/data/data_provider.dart';
 import 'add_poster_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../models/poster.dart';
 import '../../../utility/constants.dart';
-
 
 class PosterListSection extends StatelessWidget {
   const PosterListSection({
@@ -46,9 +48,11 @@ class PosterListSection extends StatelessWidget {
                   ],
                   rows: List.generate(
                     dataProvider.posters.length,
-                    (index) => posterDataRow(dataProvider.posters[index], delete: () {
-                      //TODO: should complete call deletePoster
-
+                    (index) =>
+                        posterDataRow(dataProvider.posters[index], delete: () {
+                      //Delete Poster Function
+                      context.posterProvider
+                          .deletePoster(dataProvider.posters[index]);
                     }, edit: () {
                       showAddPosterForm(context, dataProvider.posters[index]);
                     }),
@@ -69,14 +73,20 @@ DataRow posterDataRow(Poster poster, {Function? edit, Function? delete}) {
       DataCell(
         Row(
           children: [
-            Image.network(
-              poster.imageUrl ?? '',
-              height: 30,
-              width: 30,
-              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                return Icon(Icons.error);
-              },
-            ),
+            Container(
+                padding: EdgeInsets.only(right: 10.0),
+                child: ClipOval(
+                    child: SizedBox.fromSize(
+                        child: Image.network(
+                  fit: BoxFit.cover,
+                  poster.imageUrl ?? '',
+                  height: 40,
+                  width: 40,
+                  errorBuilder: (BuildContext context, Object exception,
+                      StackTrace? stackTrace) {
+                    return Icon(Icons.error);
+                  },
+                )))),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
               child: Text(poster.posterName ?? ''),
