@@ -55,7 +55,7 @@ class VariantsScreen extends StatelessWidget {
                           Gap(20),
                           IconButton(
                               onPressed: () {
-                                //TODO: should complete call getAllVariant
+                                //Get All Variant Call Function
                                 context.dataProvider.getAllVariants(showSnack: true);
                               },
                               icon: Icon(Icons.refresh)),

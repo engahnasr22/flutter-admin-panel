@@ -95,7 +95,7 @@ class BrandSubmitForm extends StatelessWidget {
                       // Validate and save the form
                       if (context.brandProvider.addBrandFormKey.currentState!.validate()) {
                         context.brandProvider.addBrandFormKey.currentState!.save();
-                        //TODO: should complete call submitBrand
+                        //Submit Brand Call Function
                         context.brandProvider.submitBrand();
                         Navigator.of(context).pop();
                       }

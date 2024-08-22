@@ -19,7 +19,7 @@ class SubCategoryProvider extends ChangeNotifier {
 
   SubCategoryProvider(this._dataProvider);
 
-  //TODO: should complete addSubCategory
+  //Add Sub Category Call Function
   addSubCategory() async {
     try {
       Map<String, dynamic> subCategory = {
@@ -50,7 +50,7 @@ class SubCategoryProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete updateSubCategory
+  //Update Sub Category Call Function
   updateSubCategory() async {
     try {
       if (subCategoryForUpdate != null) {
@@ -85,7 +85,7 @@ class SubCategoryProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete submitSubCategory
+  //Submit Sub Category Call Function
   submitSubCategory() {
     if (subCategoryForUpdate != null) {
       updateSubCategory();
@@ -94,7 +94,7 @@ class SubCategoryProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete deleteSubCategory
+  //Delete Sub Category Call Function
   deleteSubCategory(SubCategory subCategory) async {
     try {
       Response response = await service.deleteItem(

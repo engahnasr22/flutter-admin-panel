@@ -20,7 +20,7 @@ class VariantsTypeHeader extends StatelessWidget {
         Spacer(flex: 2),
         Expanded(child: SearchField(
           onChange: (val) {
-            //TODO: should complete  call filterVariantTypes
+            //Filter VariantTypes Call Function
             context.dataProvider.filterVariantType(val);
           },
         )),

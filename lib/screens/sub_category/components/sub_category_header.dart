@@ -19,7 +19,7 @@ class SubCategoryHeader extends StatelessWidget {
         Spacer(flex: 2),
         Expanded(child: SearchField(
           onChange: (val) {
-            //TODO: should complete call filterSubCategories
+            //Filter Sub Categories Call Function
             context.dataProvider.filterSubCategories(val);
           },
         )),

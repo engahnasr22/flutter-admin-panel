@@ -19,7 +19,7 @@ class BrandProvider extends ChangeNotifier {
 
   BrandProvider(this._dataProvider);
 
-  //TODO: should complete addBrand
+  //Add Brand Configuration
   addBrand() async {
     try {
       Map<String, dynamic> brand = {
@@ -50,7 +50,7 @@ class BrandProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete updateBrand
+  //Update Brand Configuration
   updateBrand() async {
     try {
       if (brandForUpdate != null) {
@@ -85,8 +85,7 @@ class BrandProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete submitBrand
-
+  //Submit Brand Configuration
   submitBrand() {
     if (brandForUpdate != null) {
       updateBrand();
@@ -95,7 +94,7 @@ class BrandProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete deleteBrand
+  //Delete Brand Configuration
   deleteBrand(Brand brand) async {
     try {
       Response response = await service.deleteItem(

@@ -21,7 +21,7 @@ class VariantsProvider extends ChangeNotifier {
   VariantsProvider(this._dataProvider);
 
 
-  //TODO: should complete addVariant
+  //Add Variant Call Function
   addVariant() async {
     try {
       Map<String, dynamic> variant = {
@@ -52,7 +52,7 @@ class VariantsProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete updateVariant
+  //Update Variant Call Function
   updateVariant() async {
     try {
       if (variantForUpdate != null) {
@@ -88,7 +88,7 @@ class VariantsProvider extends ChangeNotifier {
   }
 
 
-  //TODO: should complete submitVariant
+  //Submit Variant Call Function
   submitVariant() {
     if (variantForUpdate != null) {
       updateVariant();
@@ -97,7 +97,7 @@ class VariantsProvider extends ChangeNotifier {
     }
   }
 
-  //TODO: should complete deleteVariant
+  //Delete Variant Call Function
   deleteVariant(Variant variant) async {
     try {
       Response response = await service.deleteItem(

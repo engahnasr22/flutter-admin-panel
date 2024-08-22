@@ -64,7 +64,7 @@ class VariantsTypeListSection extends StatelessWidget {
                         showAddVariantsTypeForm(context, dataProvider.variantTypes[index]);
                       },
                       delete: () {
-                        //TODO: should complete call deleteVariantType
+                        //Delete VariantType Call Function
                         context.variantTypeProvider.deleteVariantType(dataProvider.variantTypes[index]);
                       },
                     ),
